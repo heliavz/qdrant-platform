@@ -58,10 +58,16 @@ const darkPalette = {
     default: neutral[950],
     paper: "#111824ff",
     card: "#111824ff",
+    code: "#111824",
     paperElevation0: neutral[950],
     paperElevation1: "#111824ff",
     paperElevation2: "#141a2aff",
     paperElevation3: "#171d2cff",
+    paperElevation4: "#191f2eff",
+    paperElevation5: "#1c2130ff",
+    paperElevation6: "#1e2433ff",
+    paperElevation7: "#1e2433ff",
+    paperElevation8: "#212635ff",
   },
   divider: "#ffffff1f",
   avatarFill: grey[600],
@@ -69,6 +75,7 @@ const darkPalette = {
   tooltipFill: "#616161e5",
   backdropFill: "#00000080",
   appBarDefaultFill: "#191f2eff",
+  nativeScrollbarBg: grey[700],
 };
 
 export const darkThemeOptions = {

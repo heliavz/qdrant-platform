@@ -1,4 +1,5 @@
 import React from "react";
+import qdrantLogo from "../../assets/qdrant-logo-dark.svg";
 import {
   Box,
   ListItem,
@@ -62,37 +63,21 @@ const Sidebar = ({ activeItem, onSelect }) => {
     <Drawer variant="permanent" anchor="left">
       {/* Logo */}
       <Box
+        onClick={() => onSelect("get-started")}
         sx={{
           display: "flex",
           alignItems: "center",
-          gap: "10px",
           px: "20px",
           py: "18px",
           cursor: "pointer",
         }}
-        onClick={() => onSelect("get-started")}
       >
         <Box
           component="img"
-          src="https://qdrant.tech/img/logo_with_text.png"
+          src={qdrantLogo}
           alt="Qdrant"
-          sx={{ height: "24px", objectFit: "contain" }}
-          onError={(e) => {
-            e.target.style.display = "none";
-            e.target.nextSibling.style.display = "block";
-          }}
+          sx={{ height: "28px", objectFit: "contain" }}
         />
-        <Box
-          sx={{
-            display: "none",
-            color: "primary.main",
-            fontWeight: 700,
-            fontSize: "18px",
-            fontFamily: "Mona Sans, sans-serif",
-          }}
-        >
-          Qdrant
-        </Box>
       </Box>
 
       <Divider />
