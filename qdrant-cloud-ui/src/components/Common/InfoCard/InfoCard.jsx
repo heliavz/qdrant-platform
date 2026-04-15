@@ -18,7 +18,7 @@ const InfoCard = ({
         flexDirection: "column",
         transition: "border-color 0.2s ease",
         "&:hover": {
-          borderColor: "rgba(255, 255, 255, 0.4)",
+          borderColor: "rgba(255, 255, 255, 0.3)",
         },
       }}
     >
@@ -26,34 +26,28 @@ const InfoCard = ({
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: "12px",
+          gap: "8px",
           flexGrow: 1,
-          p: "20px",
-          "&:last-child": { pb: "20px" },
+          p: "16px",
+          "&:last-child": { pb: "16px" },
         }}
       >
-        {/* Icon */}
+        {/* Icon — no background, just the icon */}
         {Icon && (
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "36px",
-              height: "36px",
-              borderRadius: "8px",
-              bgcolor: "rgba(59, 130, 246, 0.1)",
-              flexShrink: 0,
-            }}
-          >
-            <Icon size={18} color="#60a5fa" />
+          <Box sx={{ mb: "4px" }}>
+            <Icon size={20} color="#60a5fa" />
           </Box>
         )}
 
         {/* Title */}
         <Typography
-          variant="subtitle2"
-          sx={{ color: "text.primary", fontWeight: 600 }}
+          variant="body2"
+          sx={{
+            color: "text.primary",
+            fontWeight: 600,
+            fontSize: "0.9375rem",
+            lineHeight: 1.4,
+          }}
         >
           {title}
         </Typography>
@@ -61,7 +55,12 @@ const InfoCard = ({
         {/* Description */}
         <Typography
           variant="body2"
-          sx={{ color: "text.secondary", lineHeight: 1.6, flexGrow: 1 }}
+          sx={{
+            color: "text.secondary",
+            lineHeight: 1.5,
+            fontSize: "0.875rem",
+            flexGrow: 1,
+          }}
         >
           {description}
         </Typography>
@@ -80,13 +79,13 @@ const InfoCard = ({
               color: "text.primary",
               fontSize: "0.875rem",
               fontWeight: 500,
-              mt: "auto",
+              mt: "8px",
               width: "fit-content",
               "&:hover": { color: "primary.main" },
             }}
           >
             {ctaText}
-            <ArrowRight size={14} />
+            <ArrowRight size={13} />
           </Link>
         )}
       </CardContent>

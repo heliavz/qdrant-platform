@@ -417,11 +417,9 @@ const GetStarted = () => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        px: "40px",
-        py: "40px",
-        maxWidth: "1120px",
+        px: "28px",
+        py: "32px",
         width: "100%",
-        mx: "auto",
       }}
     >
       <Box component="header" sx={{ mb: "32px" }}>
