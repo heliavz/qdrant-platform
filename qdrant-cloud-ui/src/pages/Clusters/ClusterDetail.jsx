@@ -47,7 +47,7 @@ const CopyField = ({ label, value }) => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "4px" }}>
       <Typography
-        sx={{ fontSize: "12px", color: "text.disabled", fontWeight: 500 }}
+        sx={{ fontSize: "12px", color: "text.secondary", fontWeight: 500 }}
       >
         {label}
       </Typography>
@@ -166,7 +166,7 @@ const OverviewTab = ({ cluster }) => (
           >
             <Box>
               <Typography
-                sx={{ fontSize: "12px", color: "text.disabled", mb: "4px" }}
+                sx={{ fontSize: "12px", color: "text.secondary", mb: "4px" }}
               >
                 Cluster ID
               </Typography>
@@ -180,14 +180,14 @@ const OverviewTab = ({ cluster }) => (
                 >
                   {cluster.clusterId?.slice(0, 8)}...
                 </Typography>
-                <IconButton size="small" sx={{ color: "text.disabled" }}>
+                <IconButton size="small" sx={{ color: "text.secondary" }}>
                   <Copy size={12} />
                 </IconButton>
               </Box>
             </Box>
             <Box>
               <Typography
-                sx={{ fontSize: "12px", color: "text.disabled", mb: "4px" }}
+                sx={{ fontSize: "12px", color: "text.secondary", mb: "4px" }}
               >
                 Version
               </Typography>
@@ -203,7 +203,7 @@ const OverviewTab = ({ cluster }) => (
             </Box>
             <Box>
               <Typography
-                sx={{ fontSize: "12px", color: "text.disabled", mb: "4px" }}
+                sx={{ fontSize: "12px", color: "text.secondary", mb: "4px" }}
               >
                 Cloud Provider
               </Typography>
@@ -251,7 +251,7 @@ const OverviewTab = ({ cluster }) => (
                   sx={{
                     fontSize: "11px",
                     fontWeight: 700,
-                    color: "text.disabled",
+                    color: "text.secondary",
                     textTransform: "uppercase",
                     letterSpacing: "0.06em",
                   }}
@@ -278,7 +278,7 @@ const OverviewTab = ({ cluster }) => (
                 >
                   #0
                 </Typography>
-                <Typography sx={{ fontSize: "11px", color: "text.disabled" }}>
+                <Typography sx={{ fontSize: "11px", color: "text.secondary" }}>
                   v{cluster.version}
                 </Typography>
               </Box>
@@ -683,7 +683,7 @@ const ClusterDetail = ({ cluster, onBack }) => {
       {clusterTabs.slice(1).map((tab, i) => (
         <TabPanel key={tab} value={activeTab} index={i + 1}>
           <Box sx={{ py: "40px", textAlign: "center" }}>
-            <Typography sx={{ color: "text.disabled", fontSize: "0.875rem" }}>
+            <Typography sx={{ color: "text.secondary", fontSize: "0.875rem" }}>
               {tab} — coming soon
             </Typography>
           </Box>

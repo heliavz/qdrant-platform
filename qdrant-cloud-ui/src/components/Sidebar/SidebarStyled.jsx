@@ -67,7 +67,7 @@ export const StyledList = styled(List)(() => ({
 }));
 
 export const SectionLabel = styled(Typography)(({ theme }) => ({
-  color: theme.palette.text.disabled,
+  color: theme.palette.text.secondary,
   fontSize: "11px",
   fontWeight: 600,
   letterSpacing: "0.08em",

@@ -53,7 +53,7 @@ const ColHeader = ({ children }) => (
     sx={{
       fontSize: "11px",
       fontWeight: 700,
-      color: "text.disabled",
+      color: "text.secondary",
       textTransform: "uppercase",
       letterSpacing: "0.08em",
     }}

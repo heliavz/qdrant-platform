@@ -36,7 +36,7 @@ const Metric = ({ label, used, total, unit = "MB" }) => {
           {used}
           <Typography
             component="span"
-            sx={{ color: "text.disabled", fontSize: "11px", fontWeight: 400 }}
+            sx={{ color: "text.secondary", fontSize: "11px", fontWeight: 400 }}
           >
             /{total} {unit}
           </Typography>
@@ -78,7 +78,7 @@ const ClusterStatusBar = ({ cluster }) => {
         <Typography
           sx={{
             fontSize: "11px",
-            color: "text.disabled",
+            color: "text.secondary",
             fontWeight: 500,
             textTransform: "uppercase",
             letterSpacing: "0.06em",
@@ -106,7 +106,7 @@ const ClusterStatusBar = ({ cluster }) => {
         <Typography
           sx={{
             fontSize: "11px",
-            color: "text.disabled",
+            color: "text.secondary",
             fontWeight: 500,
             textTransform: "uppercase",
             letterSpacing: "0.06em",
@@ -173,7 +173,7 @@ const ClusterStatusBar = ({ cluster }) => {
         <Typography
           sx={{
             fontSize: "11px",
-            color: "text.disabled",
+            color: "text.secondary",
             fontWeight: 500,
             textTransform: "uppercase",
             letterSpacing: "0.06em",
@@ -201,7 +201,7 @@ const ClusterStatusBar = ({ cluster }) => {
         <Typography
           sx={{
             fontSize: "11px",
-            color: "text.disabled",
+            color: "text.secondary",
             fontWeight: 500,
             textTransform: "uppercase",
             letterSpacing: "0.06em",

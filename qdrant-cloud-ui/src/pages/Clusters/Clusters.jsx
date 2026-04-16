@@ -176,7 +176,7 @@ const FreeClusterCard = ({ onCreate }) => {
           <FormHelperText
             sx={{
               mx: 0,
-              color: nameError ? "error.main" : "text.disabled",
+              color: nameError ? "error.main" : "text.secondary",
               fontSize: "11px",
             }}
           >
