@@ -26,6 +26,7 @@ import {
   Check,
 } from "lucide-react";
 import ClusterStatusBar from "../../components/ClusterStatus/ClusterStatusBar";
+import ApiKeysTab from "../../components/ApiKeys/ApiKeysTab";
 
 // Tab panel
 const TabPanel = ({ children, value, index }) => (
@@ -680,8 +681,14 @@ const ClusterDetail = ({ cluster, onBack }) => {
         <OverviewTab cluster={cluster} />
       </TabPanel>
 
-      {clusterTabs.slice(1).map((tab, i) => (
-        <TabPanel key={tab} value={activeTab} index={i + 1}>
+      {/* API Keys tab — index 1 */}
+      <TabPanel value={activeTab} index={1}>
+        <ApiKeysTab cluster={cluster} />
+      </TabPanel>
+
+      {/* All other tabs — coming soon */}
+      {clusterTabs.slice(2).map((tab, i) => (
+        <TabPanel key={tab} value={activeTab} index={i + 2}>
           <Box sx={{ py: "40px", textAlign: "center" }}>
             <Typography sx={{ color: "text.secondary", fontSize: "0.875rem" }}>
               {tab} — coming soon
