@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import Sidebar from "./components/Sidebar/Sidebar";
 import TopBar from "./components/TopBar/TopBar";
+import CommandPalette from "./components/CommandPalette/CommandPalette";
 import { drawerWidth } from "./components/Sidebar/SidebarStyled";
 import GetStarted from "./pages/GetStarted/GetStarted";
 import Clusters from "./pages/Clusters/Clusters";
@@ -11,11 +12,42 @@ import ClusterDetail from "./pages/Clusters/ClusterDetail";
 const App = () => {
   const [activeItem, setActiveItem] = useState("get-started");
 
+  // Command palette state
+  const [paletteOpen, setPaletteOpen] = useState(false);
+
   // Cluster state
   const [clusters, setClusters] = useState([]);
   const [selectedCluster, setSelectedCluster] = useState(null);
   const [clusterView, setClusterView] = useState("create");
 
+  // Global Ctrl+K listener
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        setPaletteOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Handle navigation from command palette
+  const handlePaletteNavigate = (itemId, clusterData = null) => {
+    if (itemId === "clusters" && clusterData) {
+      setActiveItem("clusters");
+      setSelectedCluster(clusterData);
+      setClusterView("detail");
+      return;
+    }
+    setActiveItem(itemId);
+    if (itemId === "clusters") {
+      setClusterView(clusters.length > 0 ? "list" : "create");
+      setSelectedCluster(null);
+    }
+  };
+
+  // Sidebar selection
   const handleSidebarSelect = (item) => {
     setActiveItem(item);
     if (item === "clusters") {
@@ -28,26 +60,26 @@ const App = () => {
     }
   };
 
-  // new cluster is created from the form
+  // Cluster creation
   const handleClusterCreate = (newCluster) => {
     setClusters((prev) => [...prev, newCluster]);
     setSelectedCluster(newCluster);
     setClusterView("detail");
   };
 
-  // cluster row is clicked in the list
+  // Cluster selection from list
   const handleClusterSelect = (cluster) => {
     setSelectedCluster(cluster);
     setClusterView("detail");
   };
 
-  // "All Clusters" back button is clicked in detail
+  // Back to list
   const handleBackToList = () => {
     setSelectedCluster(null);
     setClusterView(clusters.length > 0 ? "list" : "create");
   };
 
-  // "Create" button is clicked from the list page
+  // Create new from list
   const handleCreateNew = () => {
     setClusterView("create");
   };
@@ -108,7 +140,7 @@ const App = () => {
           overflow: "hidden",
         }}
       >
-        <TopBar />
+        <TopBar onSearchOpen={() => setPaletteOpen(true)} />
         <Box
           component="main"
           sx={{
@@ -119,6 +151,14 @@ const App = () => {
           {renderPage()}
         </Box>
       </Box>
+
+      {/* Command Palette */}
+      <CommandPalette
+        open={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
+        onNavigate={handlePaletteNavigate}
+        clusters={clusters}
+      />
     </Box>
   );
 };

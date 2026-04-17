@@ -21,7 +21,9 @@ import {
   LogOut,
   Plus,
   Check,
+  Search,
 } from "lucide-react";
+import { TriggerButton } from "../CommandPalette/CommandPaletteStyled";
 
 // Account Switcher
 const AccountSwitcher = () => {
@@ -73,11 +75,7 @@ const AccountSwitcher = () => {
         >
           Helia
         </Typography>
-        {open ? (
-          <ChevronUp size={14} color="var(--text-secondary)" />
-        ) : (
-          <ChevronDown size={14} />
-        )}
+        {open ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
       </Box>
 
       <Menu
@@ -234,7 +232,6 @@ const UserProfile = () => {
           },
         }}
       >
-        {/* User info */}
         <Box
           sx={{
             px: "16px",
@@ -282,7 +279,6 @@ const UserProfile = () => {
 
         <Divider />
 
-        {/* Theme switcher */}
         <Box sx={{ px: "16px", py: "12px" }}>
           <ToggleButtonGroup
             value={theme}
@@ -300,9 +296,7 @@ const UserProfile = () => {
                   color: "text.primary",
                   borderColor: "primary.main",
                 },
-                "&:hover": {
-                  bgcolor: "action.hover",
-                },
+                "&:hover": { bgcolor: "action.hover" },
               },
             }}
           >
@@ -320,7 +314,6 @@ const UserProfile = () => {
 
         <Divider />
 
-        {/* Logout */}
         <MenuItem
           onClick={() => setAnchorEl(null)}
           sx={{
@@ -342,7 +335,7 @@ const UserProfile = () => {
 };
 
 // TopBar
-const TopBar = () => {
+const TopBar = ({ onSearchOpen }) => {
   return (
     <Box
       component="header"
@@ -352,13 +345,52 @@ const TopBar = () => {
         justifyContent: "space-between",
         pl: "28px",
         pr: "28px",
-        height: "65px",
+        height: "61px",
         flexShrink: 0,
         borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
         bgcolor: "background.paperElevation1",
       }}
     >
+      {/* Left: account switcher */}
       <AccountSwitcher />
+
+      {/* Center: search trigger */}
+      <TriggerButton onClick={onSearchOpen}>
+        <Search size={14} color="#94a3b8" />
+        <Typography
+          sx={{
+            fontSize: "13px",
+            color: "text.secondary",
+            fontWeight: 400,
+            minWidth: "140px",
+          }}
+        >
+          Search...
+        </Typography>
+        <Box sx={{ display: "flex", gap: "3px", ml: "8px" }}>
+          {["Ctrl", "K"].map((k) => (
+            <Box
+              key={k}
+              sx={{
+                px: "5px",
+                py: "1px",
+                borderRadius: "4px",
+                fontSize: "11px",
+                fontWeight: 600,
+                fontFamily: "monospace",
+                color: "text.secondary",
+                bgcolor: "action.hover",
+                border: (theme) => `1px solid ${theme.palette.divider}`,
+                lineHeight: 1.6,
+              }}
+            >
+              {k}
+            </Box>
+          ))}
+        </Box>
+      </TriggerButton>
+
+      {/* Right: user profile */}
       <UserProfile />
     </Box>
   );
