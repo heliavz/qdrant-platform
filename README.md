@@ -10,6 +10,8 @@ A redesign and feature improvement of [Qdrant Cloud](https://cloud.qdrant.io/), 
 
 ### 1. Get Started page - tab navigation
 
+![Get Started Tab Navigation](./screenshots/get-started.png)
+
 **Problem:** The original page stacks all content sections vertically, forcing users to scroll through everything to find what they need.
 
 **Improvement:** Converted the layout into a tab-based interface with four sections: Explore Your Data, Build Applications, Deployment, and Support. The Cloud Quickstart banner remains pinned at the top on every tab. Zero scrolling required.
@@ -18,6 +20,8 @@ A redesign and feature improvement of [Qdrant Cloud](https://cloud.qdrant.io/), 
 
 ### 2. Cluster detail page - health status bar
 
+![Cluster Status Bar](./screenshots/cluster-status-bar.png)
+
 **Problem:** RAM, CPU, and disk metrics existed in the original platform but were buried at the bottom of the Overview tab, below an upgrade upsell banner and a "Get Started" section. Engineers monitoring production clusters had to scroll past marketing content to reach health data.
 
 **Improvement:** Surfaced a compact health strip immediately below the cluster name - above the tabs, always visible regardless of which tab is active. Shows RAM, CPU, and disk usage as progress bars with color-coded status (green/amber/red), version badge, region, and collection count at a glance.
@@ -25,6 +29,8 @@ A redesign and feature improvement of [Qdrant Cloud](https://cloud.qdrant.io/), 
 ---
 
 ### 3. API Keys tab - security improvements
+
+![API Keys Tab](./screenshots/api-keys-tab.png)
 
 **Problem:** The original API Keys tab showed basic key information with no usage tracking or security guidance.
 
@@ -40,6 +46,8 @@ A redesign and feature improvement of [Qdrant Cloud](https://cloud.qdrant.io/), 
 ---
 
 ### 4. Command palette - `Ctrl+K`
+
+![Command Palette](./screenshots/command-palette.png)
 
 **Problem:** The platform had no global search or keyboard navigation. Users had to click through the sidebar to reach any destination.
 
