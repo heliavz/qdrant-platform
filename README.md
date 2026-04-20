@@ -1,5 +1,7 @@
 # Qdrant Cloud UI - Rework
 
+**Live demo:** https://heliavz.github.io/qdrant-platform/
+
 A redesign and feature improvement of [Qdrant Cloud](https://cloud.qdrant.io/), the managed cloud platform for the Qdrant vector database. Built as a frontend portfolio project to demonstrate real product thinking and UI engineering on an existing developer tool.
 
 > This is not an official Qdrant product. It is an independent rework built to identify UX gaps and propose concrete improvements to the live platform.
